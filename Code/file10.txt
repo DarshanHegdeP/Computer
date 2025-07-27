@@ -1,0 +1,14 @@
+#!/bin/bash
+yes | apt update
+yes | apt install apache2
+echo "<h1>Server Details</h1><p>Hostname: $(hostname)</p><p>IP Address: $(hostname -I | cut -d' ' -f1)</p>" | tee /var/www/html/index.html > /dev/null
+systemctl restart apache2
+
+
+
+#!/bin/bash
+yes | sudo apt update
+yes | sudo apt install apache2
+echo "<h1>Server Details</h1><p>Hostname:$(hostname)</p>
+<p>IP Address: $(hostname -I | cut -d" " -f1)</p>" > /var/www/html/index.html
+sudo systemctl restart apache2
