@@ -1,0 +1,49 @@
+// 5. UPDATE: Update employee's salary
+
+ String updateSql = "UPDATE employees SET salary = ? WHERE name = ?";
+
+ PreparedStatement updateStmt = conn.prepareStatement(updateSql);
+
+ updateStmt.setDouble(1, 60000);
+
+ updateStmt.setString(2, "Alice");
+
+ updateStmt.executeUpdate();
+
+ System.out.println("Updated salary for Alice.");
+
+ // 6. DELETE: Delete employee by name
+
+ String deleteSql = "DELETE FROM employees WHERE name = ?";
+
+ PreparedStatement deleteStmt = conn.prepareStatement(deleteSql);
+
+ deleteStmt.setString(1, "Alice");
+
+ deleteStmt.executeUpdate();
+
+ System.out.println("Deleted employee Alice.");
+
+ // 7. Close resources
+
+ deleteStmt.close();
+
+ updateStmt.close();
+
+ rs.close();
+
+ selectStmt.close();
+
+ insertStmt.close();
+
+ conn.close();
+
+ } catch (Exception e) {
+
+ e.printStackTrace();
+
+ }
+
+ }
+
+}
